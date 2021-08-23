@@ -140,16 +140,40 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
-      <li class="nav-item">
+      <!-- User Profile-->
+      <li class="nav-item dropdown user-menu">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+          <img src="<?=base_url()?>/assets/dist/img/user2-160x160.jpg" class="user-image img-circle elevation-2" alt="User Image">
+          <span class="d-none d-md-inline"><?= $this->fungsi->user_login()->username?></span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <!-- User image -->
+          <li class="user-header bg-primary">
+            <img src="<?=base_url()?>/assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+
+            <p>
+            <?= $this->fungsi->user_login()->name?>
+              <!-- <small>Member since Nov. 2012</small> -->
+            </p>
+          </li>          
+          <!-- Menu Footer-->
+          <li class="user-footer">
+            <a href="#" class="btn btn-default btn-flat">Profile</a>
+            <a href="<?=site_url('auth/logout')?>" class="btn btn-default btn-flat float-right">Sign out</a>
+          </li>
+        </ul>
+      </li>
+      <!-- User Profile-->
+      <!-- <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
-      </li>
-      <li class="nav-item">
+      </li> -->
+      <!-- <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
         </a>
-      </li>
+      </li> -->
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -157,7 +181,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="<?=base_url()?>/assets/index3.html" class="brand-link">
+    <a href="<?=base_url('dashboard')?>" class="brand-link">
       <img src="<?=base_url()?>/assets/dist/img/PotekkesLogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .9">
       <span class="brand-text font-weight-light">E-Modul Praktikum</span>
     </a>
@@ -170,7 +194,7 @@
           <img src="<?=base_url()?>/assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Administrator</a>
+          <a href="#" class="d-block"><?= $this->fungsi->user_login()->name?> | <?= $this->fungsi->user_login()->username?></a>
         </div>
       </div>
 
@@ -192,7 +216,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="<?= site_url('dashboard')?>" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -506,14 +530,17 @@
                 </a>
               </li>
             </ul>
-          </li>               
+          </li> 
+          <?php if (($this->session->userdata('level') == 1) || ($this->session->userdata('level') == 2 )) { ?>              
           <li class="nav-header">Settings</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="<?= site_url('user')?>" class="nav-link">
               <i class="fa fa-user nav-icon"></i>
               <p>Users</p>
             </a>
           </li>
+          <?php } ?>
+
          </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -550,5 +577,47 @@
 <script src="<?=base_url()?>/assets/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?=base_url()?>/assets/dist/js/demo.js"></script>
+
+<!-- jQuery -->
+<script src="<?=base_url()?>/assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="<?=base_url()?>/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="<?=base_url()?>/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?=base_url()?>/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?=base_url()?>/assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?=base_url()?>/assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="<?=base_url()?>/assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="<?=base_url()?>/assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="<?=base_url()?>/assets/plugins/jszip/jszip.min.js"></script>
+<script src="<?=base_url()?>/assets/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="<?=base_url()?>/assets/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="<?=base_url()?>/assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="<?=base_url()?>/assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="<?=base_url()?>/assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- AdminLTE App -->
+<script src="<?=base_url()?>/assets/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="<?=base_url()?>/assets/dist/js/demo.js"></script>
+<!-- Page specific script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
+
 </body>
 </html>

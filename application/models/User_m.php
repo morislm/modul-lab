@@ -12,4 +12,16 @@ class User_m extends CI_Model {
         $query = $this->db->get();
         return $query;
     }
+
+    public function get($id = null){  //kalau ada parameter, tampil satu data. kalau tidak, tampil semua data
+        
+        $this->db->from('data_user');
+        if ($id != null){
+            $this->db->where('user_id', $id);
+
+        }
+        $query = $this->db->get();
+        return $query;
+
+    }
 }
