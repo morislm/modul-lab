@@ -22,11 +22,11 @@
           <div class="col-12">
             <div class="card">
 
-              <div class="card-header">
-              <div class="pull-left">
-                    <a href="<?=site_url('user/add')?>" class="btn btn-primary btn-flat"><i class="fa fa-user-plus"></i>  Create</a>
-                </div><br>
+              <div class="card-header">              
                 <h3 class="card-title">DataTable with default features</h3>
+                <div class="float-right">
+                    <a href="<?=site_url('user/add')?>" class="btn btn-primary btn-flat"><i class="fa fa-user-plus"></i>  Create</a>
+                </div>
                 
               </div>
               <!-- /.card-header -->
