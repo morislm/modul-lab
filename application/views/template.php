@@ -569,6 +569,10 @@
 </div>
 <!-- ./wrapper -->
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a0b56f9d4d254eb675a07a23510191f4bf1fbb99
 
 <!-- jQuery -->
 <script src="<?=base_url()?>/assets/plugins/jquery/jquery.min.js"></script>
