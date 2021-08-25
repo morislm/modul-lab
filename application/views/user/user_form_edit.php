@@ -23,7 +23,7 @@
             <div class="card">
 
               <div class="card-header">             
-                <h3 class="card-title ">Add New User</h3>   
+                <h3 class="card-title ">Edit Data User</h3>   
                 <div class="float-right"">
                 <a href="<?=site_url('user')?>" class="btn btn-warning btn-flat"><i class="fa fa-undo"></i>  Back</a>   
                 </div>
@@ -32,36 +32,37 @@
               <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
-                    <?php // echo validation_errors(); ?>                        
+                                           
                     <form action="" method="post">
                         <div class="card-body">
                         <div class="form-group ">
                             <label for="fullname">Nama *</label>
-                            <input type="text" class="form-control <?=form_error('fullname')? "is-invalid" : null ?>" name="fullname" id="fullname" placeholder="Full Name" value="<?=set_value('fullname')?>" >
+                            <input type="hidden" name="user_id" value="<?=$row->user_id?>">
+                            <input type="text" class="form-control <?=form_error('fullname')? "is-invalid" : null ?>" name="fullname" id="fullname" placeholder="Full Name" value="<?=$this->input->post('fullname') ?? $row->name?>" >
                             <?=form_error('fullname')?>
                         </div>
                         <div class="form-group">
                             <label for="username">Username *</label>
-                            <input type="text" class="form-control <?=form_error('username')? "is-invalid" : null ?>" name="username" id="username" placeholder="Username" value="<?=set_value('username')?>">
+                            <input type="text" class="form-control <?=form_error('username')? "is-invalid" : null ?>" name="username" id="username" placeholder="Username" value="<?=$this->input->post('fullname') ?? $row->username?>">
                             <?=form_error('username')?>
                         </div>
                         <div class="form-group">
-                            <label for="Password1">Password *</label>
-                            <input type="password" class="form-control <?=form_error('Password1')? "is-invalid" : null ?>" name="Password1" id="Password1" placeholder="Password" >
+                            <label for="Password1">Password</label><small>(Kosongkan jika tidak diganti)</small>
+                            <input type="password" class="form-control <?=form_error('Password1')? "is-invalid" : null ?>" name="Password1" id="Password1" placeholder="Password"  value="<?=$this->input->post('Password1')?>">
                             <?=form_error('Password1')?>                            
                         </div>
                         <div class="form-group">
-                            <label for="PasswordConf">Password Confirmation *</label>
-                            <input type="password" class="form-control <?=form_error('PasswordConf')? "is-invalid" : null ?>" name="PasswordConf" id="PasswordConf" placeholder="Repeat Password">
+                            <label for="PasswordConf">Password Confirmation</label>
+                            <input type="password" class="form-control <?=form_error('PasswordConf')? "is-invalid" : null ?>" name="PasswordConf" id="PasswordConf" placeholder="Repeat Password" value="<?=$this->input->post('PasswordConf')?>">
                             <?=form_error('PasswordConf')?>   
                         </div>
                         <div class="form-group">
                         <label for="Level">Level *</label>
                         <select class="custom-select rounded-0 form-control <?=form_error('level')? "is-invalid" : null ?>" name="level" id="level">
-                            <option value="">-- Pilih --</option>
-                            <option value="2" <?=set_value('level') == 2 ? "selected" : null?>>Admin</option>
-                            <option value="3" <?=set_value('level') == 3 ? "selected" : null?>>Dosen</option>
-                            <option value="4" <?=set_value('level') == 4 ? "selected" : null?>>Mahasiswa</option>                                                  
+                            <?php $level = $this->input->post('level') ? $this->input->post('level') : $row->level ?>
+                            <option value="2" <?= $level == 2 ? "selected" : null?>>Admin</option>
+                            <option value="3" <?= $level == 3 ? "selected" : null?>>Dosen</option>
+                            <option value="4" <?= $level == 4 ? "selected" : null?>>Mahasiswa</option>                                                  
                         </select>
                         <?=form_error('level')?>
                         <!-- </div>
@@ -85,7 +86,7 @@
                         <!-- /.card-body -->
 
                         <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
                         <button type="reset" class="btn btn-flat">Reset</button>
                         </div>
                     </form>
