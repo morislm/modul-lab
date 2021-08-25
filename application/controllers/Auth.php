@@ -22,7 +22,7 @@ class Auth extends CI_Controller {
 						'level'	=>  $row->level
 					);
 					$this->session->set_userdata($params);
-					redirect ('site_url('dashboard')');
+					redirect ('dashboard');
 					// echo "
 					// 	<script>
 					// 	window.location = '".site_url('dashboard')."'
