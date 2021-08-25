@@ -49,7 +49,18 @@
                     <td><?=$no++?></td>
                     <td><?=$data->username?></td>
                     <td><?=$data->name?></td>
-                    <td><?=$data->level?></td>
+                    <td><?=
+                          $data->level == 1 
+                          ? 'Super Admin' 
+                          : ( $data->level == 2
+                            ? 'Admin' 
+                            : ( $data->level  == 3
+                              ? 'Dosen' 
+                              : 'Mahasiswa'
+                               ) 
+                            );      
+                          ?>
+                    </td>
                     <form action="<?=site_url('user/del')?>" method="post">
                         <td class="text-center" widht="160px">
                           <a href="<?=site_url('user/edit/'.$data->user_id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pen"></i>
