@@ -59,7 +59,7 @@
                         <div class="form-group">
                         <label for="Level">Level *</label>
                         <select class="custom-select rounded-0 form-control <?=form_error('level')? "is-invalid" : null ?>" name="level" id="level">
-                            <?php $level = $this->input->post('level') ? $this->input->post('level') : $row->level ?>
+                              
                             <option value="2" <?= $level == 2 ? "selected" : null?>>Admin</option>
                             <option value="3" <?= $level == 3 ? "selected" : null?>>Dosen</option>
                             <option value="4" <?= $level == 4 ? "selected" : null?>>Mahasiswa</option>                                                  

@@ -9,6 +9,7 @@ class User_m extends CI_Model {
         $this->db->from('data_user');
         $this->db->where('username', $post['username']);
         $this->db->where('password', sha1($post['password']));
+        $this->db->where('status', '1');
         $query = $this->db->get();
         return $query;
     }

@@ -451,24 +451,27 @@
               </li>
             </ul>
           </li>
-          <li class="nav-header">Master</li>
+          <?php if (($this->session->userdata('level') == 1) || ($this->session->userdata('level') == 2 )) { ?>
+          <li class="nav-header">Master</li>          
           <li class="nav-item">
-            <a href="../calendar.html" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
+            <a href="<?= site_url('dosen')?>" class="nav-link">
+              <i class="nav-icon fas fa-chalkboard-teacher"></i>
               <p>
                 Data Dosen
                 <!-- <span class="badge badge-info right">2</span> -->
               </p>
             </a>
-          </li>
+          </li>   
           <li class="nav-item">
-            <a href="../gallery.html" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
+            <a href="<?= site_url('mahasiswa')?>" class="nav-link">
+              <i class="nav-icon fas fa-user-graduate"></i>
               <p>
                 Data Mahasiswa
               </p>
             </a>
-          </li>        
+          </li>
+          
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
@@ -539,7 +542,8 @@
                 </a>
               </li>
             </ul>
-          </li> 
+          </li>
+          <?php }?>  
           <?php if (($this->session->userdata('level') == 1) || ($this->session->userdata('level') == 2 )) { ?>              
           <li class="nav-header">Settings</li>
           <li class="nav-item">

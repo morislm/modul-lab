@@ -72,7 +72,7 @@
                             <i class="fa fa-trash"></i>Delete
                           </button>
 
-                        </td>
+                          </td>
                     </form>
                     
                   </tr>
