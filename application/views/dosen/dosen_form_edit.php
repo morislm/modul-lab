@@ -25,7 +25,9 @@
               <div class="card-header">             
                 <h3 class="card-title ">Edit Data Dosen</h3>   
                 <div class="float-right"">
-                <a href="<?=site_url('dosen')?>" class="btn btn-warning btn-flat"><i class="fa fa-undo"></i>Back</a>   
+
+                <a href="<?=site_url('dosen')?>" class="btn btn-warning btn-flat"><i class="fa fa-undo"></i>  Back</a>   
+
                 </div>
               </div>    
               <!-- /.card-header -->
@@ -54,18 +56,34 @@
                         </div>
                         
                         <div class="form-group">
-                        <label for="radio">Jenis Kelamin *</label>     
+
+                        <label for="radio">Jenis Kelamin *</label> 
+                          <?php $jk = $this->input->post('jk') ? $this->input->post('jk') : $row->jk ?>        
                                       
                           <div class="form-check">
-                          
-                            <input class="form-check-input <?=form_error('jk')? "is-invalid" : null ?>" type="radio" name="jk" id="jk" value="L" <?=set_radio('jk', 'L', 'jk' ==  'L' ? TRUE : FALSE);?>>
-                            <label class="form-check-label">Laki-Laki</label>
+                          <input class="form-check-input <?=form_error('jk')? "is-invalid" : null ?>" type="radio" name="jk" id="jk" value="L" <?=set_radio('jk','L', $jk ==  'L' ? TRUE : FALSE);?>>
+                          <label class="form-check-label">Laki-Laki</label>
+                          <?=form_error('jk')?>
                           </div>
-                          <div class="form-check">
-                            <input class="form-check-input <?=form_error('jk')? "is-invalid" : null ?>" type="radio" name="jk" id="jk" value="P" <?=set_radio('jk', 'P', 'jk' ==  'P' ? TRUE : FALSE);?>>
+
+                          <div class="form-check">                          
+                            <input class="form-check-input <?=form_error('jk')? "is-invalid" : null ?>" type="radio" name="jk" id="jk" value="P" <?=set_radio('jk', 'P', $jk ==  'P' ? TRUE : FALSE);?>>
                             <label class="form-check-label">Perempuan</label>
                             <?=form_error('jk')?>
-                          </div>                                                   
+                          </div>
+                          
+                          <!-- <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              Default radio
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                              Default checked radio
+                            </label>
+                          </div> -->
                         </div>
 
                         <div class="form-group">
@@ -90,7 +108,8 @@
                         <select class="custom-select" name="jurusan" id="jurusan">
                           <option value="1">Keperawatan</option>
                           <option value="2">Kebidanan</option>
-                          <option value="3">Gizii</option>
+                          <option value="3">Gizi</option>
+
                           <option value="4">TLM</option>
                          </select>
                         </div>
@@ -106,14 +125,8 @@
                             <input type="email" class="form-control " name="email" id="email" placeholder="E-mail" value="<?=$this->input->post('email') ?? $row->email?>">
                                                        
                         </div>
-                        <div class="form-group">
-                        <label for="Status">Status*</label>
-                        <select class="custom-select rounded-0 form-control" name="status" id="status">
-                            
-                            <option value="1">Aktif</option>
-                            <option value="0">Tidak Aktif</option>                   
-                        </select>
-                        </div>
+                        
+
                       </div>
                         <!-- /.card-body -->
 

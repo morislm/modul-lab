@@ -65,16 +65,12 @@ class Dosen extends CI_Controller {
 
 	public function edit($id){	
 		$this->form_validation->set_rules('fullname', 'Nama', 'required');
-		$this->form_validation->set_rules('nip', 'nip', 'required|is_unique[data_dosen.nip]',
-		 				array('is_unique' => '%s Sudah digunakan')
-		 );
-		 $this->form_validation->set_rules('nidn', 'nidn', 'required|is_unique[data_dosen.nidn]',
-		 				array('is_unique' => '%s Sudah digunakan')
-		 );
+
+		$this->form_validation->set_rules('nip', 'nip', 'required');
+		 $this->form_validation->set_rules('nidn', 'nidn', 'required');
 		$this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
 		$this->form_validation->set_rules('jk', 'Jenis Kelamin', 'required');
 		$this->form_validation->set_rules('tgl_lahir', 'Tanggal Lahir', 'required');
-		$this->form_validation->set_rules('status', 'status', 'required');
 		$this->form_validation->set_message('required', '%s Masih Kosong, Silahkan diisi');
 		$this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
 		if ($this->form_validation->run() == FALSE)		{
@@ -95,16 +91,14 @@ class Dosen extends CI_Controller {
 		else
 		{
 			$post = $this->input->post(null, TRUE);
-			$kode_tampil = $this->dosen_m->checkkode();
-			$this->dosen_m->add($post, $kode_tampil);
-			$this->dosen_m->adduser($post,$kode_tampil);
+			$this->dosen_m->edit($post);
 			if ($this->db->affected_rows() > 0 ){
 				echo "<script>
-					alert('Data Berhasil Disimpan')
+					alert('Data Berhasil Diubah');
 				</script>";
 			}
 			echo "<script>
-				window.location='".site_url('dosen')."'
+				window.location='".site_url('dosen')."';
 			</script>";
 		}
 	}

@@ -60,6 +60,23 @@ class Dosen_m extends CI_Model {
         return $kodetampil;
     }
 
+    public function edit($post){
+        
+        $params ['nama'] = $post['fullname'];
+        $params ['nip'] = $post['nip'];
+        $params ['nidn'] = $post['nidn'];
+        $params ['jk'] = $post['jk'];
+        $params ['tempat_lahir'] = $post['tempat_lahir'];
+        $params ['tgl_lahir'] = $post['tgl_lahir'];
+        $params ['alamat'] = $post['alamat'];
+        $params ['id_jurusan'] = $post['jurusan'];
+        $params ['no_hp'] = $post['no_hp'];
+        $params ['email'] = $post['email'];        
+        $this->db->where('id_dosen', $post['id_dosen']);
+        $this->db->update('data_dosen',$params);
+
+    }
+    
     public function del($id){
         $params ['status'] = '0';
         $this->db->where('id_dosen', $id);
