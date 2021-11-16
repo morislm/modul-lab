@@ -18,4 +18,12 @@ class Materi extends CI_Controller {
 		$this->template->load('template','materi/data_materi', $data);
 	}
 
+	public function view($id)
+	{
+		$data ['row'] = $this->materi_m->get($id);
+		$data ['materi'] = $this->materi_m->get_materi($id);
+		$this->template->load('template','materi/materi_belajar', $data);
+
+	}
+
 }
