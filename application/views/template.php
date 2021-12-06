@@ -234,7 +234,7 @@
               </p>
             </a>            
           </li>
-          <?php if (($this->session->userdata('level') == 1) || ($this->session->userdata('level') == 4 )) { ?>          
+          <?php if (($this->session->userdata('level') == 1) ||  ($this->session->userdata('level') == 4 )) { ?>          
           <!-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
@@ -426,14 +426,14 @@
           </li> -->
           <li class="nav-header">Mahasiswa</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="<?= site_url('materi')?>" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Materi
-                <i class="fas fa-angle-left right"></i>
+                <!-- <i class="fas fa-angle-left right"></i> -->
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <!-- <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="../tables/simple.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -452,7 +452,7 @@
                   <p>Pembelajaran 3</p>
                 </a>
               </li>
-            </ul>
+            </ul> -->
           </li>
 
           <li class="nav-item">

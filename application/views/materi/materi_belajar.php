@@ -35,16 +35,14 @@
                 <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
                     <div class="row">
                         <div class="col-12">
-                            <h3>Recent Activity</h3>
+                            <h3><?=$data->nama_materi?></h3>
                             <div class="post">
                                 <p>
-                                Lorem ipsum represents a long-held tradition for designers,
-                                typographers and the like. Some people hate it and argue for
-                                its demise, but others ignore.
+                                <?=$data->deskripsi?>
                                 </p>
 
                                 <p>
-                                <h6><a href="#" class="stretched-link text-danger"><i class="fas fa-link mr-1"></i>Demo File 1 v2</a></h6>
+                                <h6><a href="<?=$data->path?>" class="stretched-link text-danger"><i class="fas fa-link mr-1"></i>Download File</a></h6>
                                 </p>
                             </div>
                         </div>

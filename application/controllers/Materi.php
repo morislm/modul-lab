@@ -20,9 +20,15 @@ class Materi extends CI_Controller {
 
 	public function view($id)
 	{
-		$data ['row'] = $this->materi_m->get($id);
-		$data ['materi'] = $this->materi_m->get_materi($id);
-		$this->template->load('template','materi/materi_belajar', $data);
+		//$check = $this->materi_m->check($id);
+		$menus = $this->materi_m->get_sub_menu($id);
+		//$data ['row'] = $this->materi_m->get($id);
+		//$data = array ('submenu' => $submenu );
+		$data2 = $this->materi_m->get($id);
+		$data = array('menus' => $menus,
+						'data2' => $data2);
+		
+		$this->template->load('template','materi/materi_belajar_admin', $data);
 
 	}
 
