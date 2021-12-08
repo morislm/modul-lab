@@ -37,7 +37,9 @@
                                 <p><?=$data->menu_belajar?></p>                              
                             </div>
                             <div class="icon">
-                                <i class="fas fa-chalkboard-teacher"></i>
+                                <i>
+                                <!-- <i class="fas fa-file-medical-alt"></i> -->
+                                <img src="<?=base_url()?>/uploads/<?=$data->icon?>" class="img-size-50 mb-5"></i>
                             </div>
                             <a href="<?=site_url('materi/view/'.$data->id_menu_belajar)?>" class="small-box-footer">
                                 View <i class="fas fa-arrow-circle-right"></i>

@@ -20,7 +20,8 @@
   <!-- /.login-logo -->
     <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="<?=base_url()?>/assets/index2.html" class="h1"><b>E-Modul</a>
+    <img src="<?=base_url()?>/assets/dist/img/PotekkesLogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" width="200" style="opacity: .9">
+      <a href="<?=base_url()?>" class="h1"><p><b>E-Modul Praktikum</a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>
