@@ -90,13 +90,13 @@
 
                         <div class="info-box-content">
                             <span class="info-box-text">Modul Praktikum</span>
-                            <span class="info-box-number">5</span>
+                            <span class="info-box-number">0</span>
 
                             <div class="progress">
-                            <div class="progress-bar" style="width: 70%"></div>
+                            <div class="progress-bar" style="width: 0%"></div>
                             </div>
                             <span class="progress-description">
-                            Pencapaian sudah 70%
+                            Belum ada data
                             </span>
                         </div>
                         <!-- /.info-box-content -->
@@ -110,13 +110,13 @@
 
                         <div class="info-box-content">
                             <span class="info-box-text">Latihan</span>
-                            <span class="info-box-number">2</span>
+                            <span class="info-box-number">0</span>
 
                             <div class="progress">
-                            <div class="progress-bar" style="width: 30%"></div>
+                            <div class="progress-bar" style="width: 0%"></div>
                             </div>
                             <span class="progress-description">
-                            Pencapaian sudah 30%
+                            Belum ada data
                             </span>
                         </div>
                         <!-- /.info-box-content -->

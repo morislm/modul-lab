@@ -38,6 +38,12 @@ class Latihan extends CI_Controller {
 		$this->template->load('template','latihan/soal');
 	}
 
+	public function hasil()
+	{
+		//$data ['row'] = $this->latihan_m->get();
+		$this->template->load('template','latihan/hasil');
+	}
+
 
 
 	

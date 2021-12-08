@@ -75,7 +75,7 @@
                       <td>Pemeriksaan Mulut dan Paring</td>
                       <td><span class="tag tag-success">Selesai</span></td>
                       <td>
-                        <a href="<?=site_url('latihan/soal')?>" class="btn btn-primary btn-xs"><i class="fa fa-pen"></i>
+                        <a href="<?=site_url('latihan/hasil')?>" class="btn btn-primary btn-xs"><i class="fa fa-pen"></i>
                             Mulai
                             </a>
                       </td>
